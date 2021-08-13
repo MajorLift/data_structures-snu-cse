@@ -1,0 +1,6 @@
+// Binary Search Tree implementation (duplicate keys disallowed)
+public class BST extends BinaryTree<String> {
+
+  public BST() {}
+
+}

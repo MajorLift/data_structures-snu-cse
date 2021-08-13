@@ -1,0 +1,68 @@
+// LongInt ADT for unbounded integers
+
+public class LongInt {
+  private int[] mag; // array representation of magnitude of LongInt;
+  private final int len; // number of digits in LongInt;
+  private final int sign; // sign of LongInt;
+
+  // constructor
+  // assumes no null input, input type mismatch, or leading zeros.
+  public LongInt(String s) {
+    // determine sign
+    if(s.charAt(0) == '-'){
+      this.sign = -1;
+      s = s.substring(1, s.length());
+    }
+    else if(s.charAt(0) == '0' && s.length() == 1) this.sign = 0;
+    else this.sign = 1;
+
+    this.len = s.length();
+
+    // init and populate array of magnitude
+    this.mag = new int[this.len];
+    for(int j = 0; j < this.len; j++){
+      this.mag[j] = s.charAt(j) - '0'; // subtract '0' to get correct ASCII int value
+    }
+  }
+
+  public int getSign(){
+    int x = this.sign;
+    return x;
+  }
+
+  public int[] getMag(){
+    return this.mag.clone();
+  }
+
+  public int getLen(){
+    int x = this.len;
+    return x;
+  }
+
+  // returns 'this' + 'opnd'; Both inputs remain intact.
+  public LongInt add(LongInt opnd) {
+    String s = HelperClass.AddArrays(this.getMag(), this.getSign(), opnd.getMag(), opnd.getSign());
+    return new LongInt(s);
+  }
+
+  // returns 'this' - 'opnd'; Both inputs remain intact.
+  public LongInt subtract(LongInt opnd) {
+    String s = HelperClass.AddArrays(this.getMag(), this.getSign(), opnd.getMag(), -opnd.getSign());
+    return new LongInt(s);
+  }
+
+  // returns 'this' * 'opnd'; Both inputs remain intact.
+  public LongInt multiply(LongInt opnd) {
+    String s = HelperClass.MultiplyArrays(this.getMag(), this.getSign(), opnd.getMag(), opnd.getSign());
+    return new LongInt(s);
+  }
+
+  public String toString(){
+    return HelperClass.toString(this.sign, this.mag);
+  }
+  // print the value of 'this' element to the standard output.
+  public void print() {
+    System.out.print(this.toString());
+  }
+}
+

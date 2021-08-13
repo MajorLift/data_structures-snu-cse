@@ -1,0 +1,172 @@
+3,4c3,4
+< CPU time to build a(n) BST: 30 millisec
+< CPU time to build a(n) AVL: 0 millisec
+---
+> CPU time to build a(n) BST: 9 millisec
+> CPU time to build a(n) AVL: 2 millisec
+7,9c7,9
+< CPU time for searching keys (BST): 0 millisec
+< Total number of node accesses (AVL): 7636 (failed searches: 0)
+< CPU time for searching keys (AVL): 0 millisec
+---
+> CPU time for searching keys (BST): 1 millisec
+> Total number of node accesses (AVL): 6778 (failed searches: 0)
+> CPU time for searching keys (AVL): 1 millisec
+11c11
+< CPU time to build the Hash Table: 0 millisec
+---
+> CPU time to build the Hash Table: 2 millisec
+15c15
+< CPU time for searching keys in the Hash Table: 0 millisec
+---
+> CPU time for searching keys in the Hash Table: 1 millisec
+17c17
+< Memory consumption: 9619008 bytes
+---
+> Memory consumption: 9227496 bytes
+21,22c21,22
+< CPU time to build a(n) BST: 30 millisec
+< CPU time to build a(n) AVL: 0 millisec
+---
+> CPU time to build a(n) BST: 9 millisec
+> CPU time to build a(n) AVL: 4 millisec
+25,27c25,27
+< CPU time for searching keys (BST): 10 millisec
+< Total number of node accesses (AVL): 15272 (failed searches: 0)
+< CPU time for searching keys (AVL): 20 millisec
+---
+> CPU time for searching keys (BST): 3 millisec
+> Total number of node accesses (AVL): 13556 (failed searches: 0)
+> CPU time for searching keys (AVL): 2 millisec
+29c29
+< CPU time to build the Hash Table: 20 millisec
+---
+> CPU time to build the Hash Table: 2 millisec
+33c33
+< CPU time for searching keys in the Hash Table: 0 millisec
+---
+> CPU time for searching keys in the Hash Table: 2 millisec
+35c35
+< Memory consumption: 11170920 bytes
+---
+> Memory consumption: 11534416 bytes
+39,40c39,40
+< CPU time to build a(n) BST: 40 millisec
+< CPU time to build a(n) AVL: 10 millisec
+---
+> CPU time to build a(n) BST: 11 millisec
+> CPU time to build a(n) AVL: 5 millisec
+43,45c43,45
+< CPU time for searching keys (BST): 10 millisec
+< Total number of node accesses (AVL): 17945 (failed searches: 1541)
+< CPU time for searching keys (AVL): 20 millisec
+---
+> CPU time for searching keys (BST): 2 millisec
+> Total number of node accesses (AVL): 15640 (failed searches: 1541)
+> CPU time for searching keys (AVL): 2 millisec
+47c47
+< CPU time to build the Hash Table: 0 millisec
+---
+> CPU time to build the Hash Table: 3 millisec
+51c51
+< CPU time for searching keys in the Hash Table: 0 millisec
+---
+> CPU time for searching keys in the Hash Table: 2 millisec
+53c53
+< Memory consumption: 12219472 bytes
+---
+> Memory consumption: 13841264 bytes
+57,58c57,58
+< CPU time to build a(n) BST: 100 millisec
+< CPU time to build a(n) AVL: 60 millisec
+---
+> CPU time to build a(n) BST: 67 millisec
+> CPU time to build a(n) AVL: 52 millisec
+61,63c61,63
+< CPU time for searching keys (BST): 210 millisec
+< Total number of node accesses (AVL): 2451356 (failed searches: 59668)
+< CPU time for searching keys (AVL): 140 millisec
+---
+> CPU time for searching keys (BST): 125 millisec
+> Total number of node accesses (AVL): 2058807 (failed searches: 59668)
+> CPU time for searching keys (AVL): 92 millisec
+65c65
+< CPU time to build the Hash Table: 40 millisec
+---
+> CPU time to build the Hash Table: 24 millisec
+69c69
+< CPU time for searching keys in the Hash Table: 140 millisec
+---
+> CPU time for searching keys in the Hash Table: 84 millisec
+71c71
+< Memory consumption: 154868384 bytes
+---
+> Memory consumption: 28379704 bytes
+73c73
+< >> train: darwin.txt, query: 40kwords.txt, LHsize: 128
+---
+> >> train: darwin.txt, query: 40kwords.txt, LHsize: 8192
+75,76c75,76
+< CPU time to build a(n) BST: 370 millisec
+< CPU time to build a(n) AVL: 550 millisec
+---
+> CPU time to build a(n) BST: 200 millisec
+> CPU time to build a(n) AVL: 114 millisec
+79,81c79,81
+< CPU time for searching keys (BST): 40 millisec
+< Total number of node accesses (AVL): 562221 (failed searches: 12462)
+< CPU time for searching keys (AVL): 30 millisec
+---
+> CPU time for searching keys (BST): 27 millisec
+> Total number of node accesses (AVL): 489135 (failed searches: 12462)
+> CPU time for searching keys (AVL): 23 millisec
+83,84c83,84
+< CPU time to build the Hash Table: 220 millisec
+< Words inserted: 15110 (insertions failed: 180018); Storage util: 0.70716524 (hash entries: 12291)
+---
+> CPU time to build the Hash Table: 86 millisec
+> Words inserted: 15110 (insertions failed: 180018); Storage util: 0.5997936 (hash entries: 17318)
+86,87c86,87
+< Total number of Hash Table accesses: 131421.5
+< CPU time for searching keys in the Hash Table: 40 millisec
+---
+> Total number of Hash Table accesses: 104082.0
+> CPU time for searching keys in the Hash Table: 20 millisec
+89c89
+< Memory consumption: 11684272 bytes
+---
+> Memory consumption: 138319600 bytes
+91c91
+< >> train: darwin.txt, query: 40kwords.txt, LHsize: 8192
+---
+> >> train: darwin.txt, query: 40kwords.txt, LHsize: 128
+93,94c93,94
+< CPU time to build a(n) BST: 520 millisec
+< CPU time to build a(n) AVL: 460 millisec
+---
+> CPU time to build a(n) BST: 200 millisec
+> CPU time to build a(n) AVL: 113 millisec
+97,99c97,99
+< CPU time for searching keys (BST): 30 millisec
+< Total number of node accesses (AVL): 562221 (failed searches: 12462)
+< CPU time for searching keys (AVL): 30 millisec
+---
+> CPU time for searching keys (BST): 25 millisec
+> Total number of node accesses (AVL): 489135 (failed searches: 12462)
+> CPU time for searching keys (AVL): 22 millisec
+101,102c101,102
+< CPU time to build the Hash Table: 120 millisec
+< Words inserted: 15110 (insertions failed: 180018); Storage util: 0.5997936 (hash entries: 17318)
+---
+> CPU time to build the Hash Table: 92 millisec
+> Words inserted: 15110 (insertions failed: 180018); Storage util: 0.70716524 (hash entries: 12291)
+104,105c104,105
+< Total number of Hash Table accesses: 104082.0
+< CPU time for searching keys in the Hash Table: 40 millisec
+---
+> Total number of Hash Table accesses: 131421.5
+> CPU time for searching keys in the Hash Table: 20 millisec
+107c107
+< Memory consumption: 13305296 bytes
+---
+> Memory consumption: 20998720 bytes

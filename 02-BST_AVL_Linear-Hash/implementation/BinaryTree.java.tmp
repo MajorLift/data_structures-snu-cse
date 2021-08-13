@@ -1,0 +1,106 @@
+import java.util.NoSuchElementException;
+
+public class BinaryTree<E extends Comparable<E>> {
+    protected TNode<E> root = null;
+    protected int size = 0;
+    protected int sumFreq = this.size;
+    protected int sumAccess = 0;
+
+    public int size() { return this.size; }
+    public boolean isEmpty() { return this.size == 0; }
+  
+    // increment access count for all nodes probed while performing search operation
+    public boolean find(E key) {
+      if (key == null) throw new IllegalArgumentException("null key."); 
+      return find(this.root, key) != null;
+    }
+
+    protected TNode<E> find(TNode<E> curr, E key) {
+      if (curr == null) return null;
+      curr.incrementAccess();
+      int cmp = key.compareTo(curr.Key());
+      if (cmp == 0) return curr;
+      else if (cmp < 0) return find(curr.Left(), key);
+      else return find(curr.Right(), key);          
+    }
+
+    public void insert(E key) {
+      if (key == null) throw new IllegalArgumentException("null key.");
+      this.root = insert(root, key);
+      this.size++;
+    }
+
+    // @returns altered BST(curr) where BSTNode key is inserted.
+    protected TNode<E> insert(TNode<E> curr, E key) {
+      if (curr == null) return new TNode<>(key);
+      if (curr.Key() == null) curr.setKey(key);
+      int cmp = key.compareTo(curr.Key());
+      if (cmp < 0) curr.setLeft(insert(curr.Left(), key));
+      else if (cmp > 0) curr.setRight(insert(curr.Right(), key));
+      else {
+        curr.incrementFreq();
+        this.size--;
+      }
+      // curr.setHeight();
+      // curr.setBalanceFactor();
+      return curr;
+    }
+
+    public int sumFreq() {
+      if (isEmpty()) throw new NoSuchElementException("Empty BST.");
+      this.sumFreq = sumFreq(root);
+      return this.sumFreq;
+    }
+
+    protected int sumFreq(TNode<E> curr) {
+      if (curr == null) return 0;
+      return curr.Freq() + sumFreq(curr.Left()) + sumFreq(curr.Right());
+    }
+
+    public int sumProbes() {
+      if (isEmpty()) throw new NoSuchElementException("Empty BST.");
+      this.sumAccess = sumProbes(root);
+      return this.sumAccess;
+    }
+
+    protected int sumProbes(TNode<E> curr) {
+      if (curr == null) return 0;
+      return curr.Access() + sumProbes(curr.Left()) + sumProbes(curr.Right());
+    }
+
+    public void resetCounters() {
+      resetFreqs(root);
+      resetAccesses(root);
+      this.sumFreq = this.size();
+      this.sumAccess = 0;
+    }
+
+    protected void resetFreqs(TNode<E> curr) {
+      if (curr == null) return;
+      curr.resetFreq();
+      resetFreqs(curr.Left());
+      resetFreqs(curr.Right());
+    }
+
+    protected void resetAccesses(TNode<E> curr) {
+      if (curr == null) return;
+      curr.resetAccess();
+      resetAccesses(curr.Left());
+      resetAccesses(curr.Right());
+    }
+
+    public void print() {
+      inorderTraversePrint(this.root);
+    }
+
+    protected void inorderTraversePrint(TNode<E> curr) {
+      if (curr == null) return;
+      inorderTraversePrint(curr.Left());
+      print(curr);
+      inorderTraversePrint(curr.Right());
+    }
+
+    protected void print(TNode<E> curr) {
+      System.out.println("[" + curr.Key() + ":" + curr.Freq() + ":" + curr.Access() + "]");
+    }  
+}

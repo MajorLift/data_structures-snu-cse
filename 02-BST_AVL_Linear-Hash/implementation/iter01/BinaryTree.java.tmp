@@ -1,0 +1,109 @@
+import java.util.NoSuchElementException;
+
+// Binary Search Tree implementation (duplicate keys disallowed)
+public class BinaryTree<E extends Comparable<E>>{
+  protected TNode<E> root;
+  protected int size = 1;
+  protected int height = 0;
+  protected int sumFreq = size;
+  protected int sumAccess = 0;
+
+  public BinaryTree(){
+    this.root = null;
+    this.size = 0;
+  }
+  public BinaryTree(E key){
+    this.root = new TNode<E>(key);
+  }
+  public BinaryTree(TNode<E> node){
+    this.root = node;
+    this.size = node.size();
+    this.height = node.height();
+    this.sumFreq = sumFreq(node);
+    this.sumAccess = sumProbes(node);
+  }
+
+  public BinaryTree<E> Left() { return new BinaryTree<>(this.root.Left()); }
+  public BinaryTree<E> Right() { return new BinaryTree<>(this.root.Right()); }
+  public boolean isEmpty(){ return this.size == 0; }
+  public int size(){ return this.size; }
+
+  // increment access count for all nodes probed while performing search operation
+  public boolean find(E key) {
+    if(key == null || key == "" ) throw new IllegalArgumentException("null key.");
+    return find(this.root, key) != null;
+  }
+  protected TNode<E> find(TNode<E> curr, E key){
+    if(curr == null) return null;
+    curr.incrementAccess(1);
+    int cmp = key.compareTo(curr.Key());
+    if(cmp < 0) return find(curr.Left(), key);
+    else if(cmp > 0) return find(curr.Right(), key);
+    else return curr;
+}
+  // public int rank(E key){
+  //   if(key == null || key == "") throw new IllegalArgumentException("null key.");
+  //   return rank(this.root, key);
+  // }
+  // // @returns number of Nodes within subtree curr with keys lesser than "key"
+  // protected int rank(TNode<E> curr, E key){
+  //   if(curr == null) return 0;
+  //   int cmp = key.compareTo(curr.Key());
+  //   if(cmp == 0) return curr.Left().size();
+  //   else if(cmp < 0) return rank(curr.Left(), key);
+  //   else return curr.Left().size() + 1 + rank(curr.Right(), key);
+  // }
+  
+  public int sumFreq() { 
+    if(isEmpty()) throw new NoSuchElementException("Empty BinaryTree.");
+    this.sumFreq = sumFreq(root);
+    return this.sumFreq;
+  }
+  protected int sumFreq(TNode<E> curr){
+    if(curr == null) return 0;
+    return curr.Freq() + sumFreq(curr.Left()) + sumFreq(curr.Right());
+  }
+  public int sumProbes() {
+    if(isEmpty()) throw new NoSuchElementException("Empty BinaryTree.");
+    this.sumAccess = sumProbes(root);
+    return this.sumAccess;
+  }
+  protected int sumProbes(TNode<E> curr){
+    if(curr == null) return 0;
+    return curr.Access() + sumProbes(curr.Left()) + sumProbes(curr.Right());
+  }
+  public void resetCounters() {
+    this.sumFreq = 0;
+    this.sumAccess = 0;
+    resetFreqs(this.root);
+    resetAccesses(this.root);
+  }
+  protected void resetFreqs(TNode<E> curr){
+    if(curr == null) return;
+    curr.resetFreq();
+    this.sumFreq += curr.Freq();
+    resetFreqs(curr.Left());
+    resetFreqs(curr.Right());
+  }
+  protected void resetAccesses(TNode<E> curr){
+    if(curr == null) return;
+    curr.resetAccess();
+    this.sumAccess += curr.Access();
+    resetAccesses(curr.Left());
+    resetAccesses(curr.Right());
+  }
+
+  public void print() {
+    inorderTraversePrint(this.root);
+  }
+  protected void inorderTraversePrint(TNode<E> curr){
+    if(curr == null) return;
+    inorderTraversePrint(curr.Left());
+    print(curr);
+    inorderTraversePrint(curr.Right());
+  }
+  protected void print(TNode<E> curr){
+    System.out.println("[" + curr.Key() + ":" + curr.Freq() + ":" + curr.Access() + "]");
+  }
+}
+

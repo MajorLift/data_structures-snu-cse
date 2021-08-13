@@ -1,0 +1,172 @@
+public class HelperClass{
+    public static void swapArrayEntries(int[] arr, int a, int b){
+        int tmp = arr[b];
+        arr[b] = arr[a];
+        arr[a] = tmp;
+    }
+    public static int[] reverseArray(int[] a){
+        if(a.length <= 1) return a;
+        int[] result = a.clone();
+        int i = -1;
+        int j = result.length;
+        while(++i < --j) HelperClass.swapArrayEntries(result, i, j);
+        return result;
+    }
+    public static int[] sliceArray(int[] a, int startIdx, int endIdx){
+        if(startIdx == 0 && endIdx == a.length) return a;
+        int[] result = new int[endIdx - startIdx];
+        for(int i = startIdx; i < endIdx; i++){
+            result[i - startIdx] = a[i];
+        }
+        return result;
+    }
+    public static int[] padTrailingZeros(int[] a, int newLength){
+        if(a.length == newLength) return a;
+        int[] result = new int[newLength];
+        for(int i = 0; i < a.length; i++) result[i] = a[i];
+        for(int i = a.length; i < newLength; i++) result[i] = 0;
+        return result;
+    }
+    public static int[] padLeadingZeros(int[] a, int newLength){
+        if(a.length == newLength) return a;
+        int[] result = new int[newLength];
+        for(int i = 0; i < newLength - a.length; i++) result[i] = 0;
+        for(int i = newLength - a.length; i < newLength; i++) result[i] = a[i - (newLength - a.length)];
+        return result;
+    }
+    public static int[] removeLeadingZeros(int[] a){
+        int i = -1;
+        while(++i < a.length && a[i] == 0);
+        if(i < a.length) return HelperClass.sliceArray(a, i, a.length);
+        else return new int[]{0};
+    }
+    // @param array representations of two non-negative integers
+    // @returns 1 if a > b, 0 if a = b, -1 if a < b
+    public static int compareAbsArrays(int[] a, int[] b){
+        if(a.length > b.length) return 1;
+        else if(a.length < b.length) return -1;
+        else{
+            int i = -1;
+            while(++i < a.length && a[i] == b[i]);
+            if(i < a.length){
+                if(a[i] > b[i]) return 1;
+                else return -1;
+            }
+            else return 0;
+        }
+    }
+    public static int[] getLargeArray(int[] a, int[] b){
+        if(HelperClass.compareAbsArrays(a, b) >= 0) return a;
+        else return b;
+    }
+    public static int[] getSmallArray(int[] a, int[] b){
+        if(HelperClass.compareAbsArrays(a, b) >= 0) return b;
+        else return a;        
+    }
+    // @param array representation of two non-negative integers
+    // @returns array representation of a + b
+    public static int[] addAbsArrays(int[] a, int[] b){
+        int[] large = HelperClass.getLargeArray(a, b);
+        int[] small = HelperClass.getSmallArray(a, b);
+        large = HelperClass.reverseArray(large);
+        small = HelperClass.reverseArray(small);
+
+        int[] result = new int[large.length + 1];
+        large = HelperClass.padTrailingZeros(large, result.length);
+        small = HelperClass.padTrailingZeros(small, result.length);
+        
+        int carry = 0;
+        for(int i = 0; i < result.length; i++){
+            int prod = carry + large[i] + small[i];
+            carry = prod / 10;
+            result[i] = prod % 10;
+        }
+        result = HelperClass.reverseArray(result);
+        result = HelperClass.removeLeadingZeros(result);
+        return result;
+    }
+    // @param array representation of two nonnegative integers
+    // @returns array representation of |a - b|
+    public static int[] subtractAbsArrays(int[] a, int[] b){
+        if(HelperClass.compareAbsArrays(a, b) == 0) return new int[]{0};
+        int[] large = HelperClass.getLargeArray(a, b);
+        int[] small = HelperClass.getSmallArray(a, b);
+        large = HelperClass.reverseArray(large);
+        small = HelperClass.reverseArray(small);
+
+        int[] result = new int[large.length];
+        small = HelperClass.padTrailingZeros(small, result.length);
+
+        int carry = 0;
+        for(int i = 0; i < result.length; i++){
+            int prod = -carry + (large[i] - small[i]);
+            carry = prod < 0 ? 1 : 0;
+            result[i] = (10 + prod) % 10;
+        }
+        result = HelperClass.reverseArray(result);
+        result = HelperClass.removeLeadingZeros(result);
+        return result;
+    }
+    public static String AddArrays(int[] a, int asgn, int[] b, int bsgn){
+        if(asgn == 0 && bsgn == 0) return "0";
+        if(asgn == 0) return HelperClass.toString(bsgn, b);
+        if(bsgn == 0) return HelperClass.toString(asgn, a);
+        int result[];
+        int resultsgn;
+        if(asgn * bsgn > 0){
+            result = HelperClass.addAbsArrays(a, b);
+            resultsgn = asgn;
+        }
+        else{
+            result = HelperClass.subtractAbsArrays(a, b);
+            if(asgn * HelperClass.compareAbsArrays(a, b) > 0) resultsgn = 1;
+            if(asgn * HelperClass.compareAbsArrays(a, b) < 0) resultsgn = -1;
+            else resultsgn = 0;
+        }
+        return HelperClass.toString(resultsgn, result);
+    }
+
+    public static int[] multiplyByDigit(int[] a, int b){
+        if(b == 0) return new int[]{0};
+        int[] result = new int[a.length + 1];
+        a = HelperClass.reverseArray(a);
+        a = HelperClass.padTrailingZeros(a, result.length);
+        int carry = 0;
+        for(int i = 0; i < result.length; i++){
+            int prod = carry + a[i] * b;
+            carry = prod / 10;
+            result[i] = prod % 10;
+        }
+        result = HelperClass.reverseArray(result);
+        result = HelperClass.removeLeadingZeros(result);
+        return result;
+    }
+    public static int[] multiplyByTens(int[] a, int shift){
+        if(shift == 0) return a;
+        return HelperClass.padTrailingZeros(a, a.length + shift);
+    }
+    public static int[] multiplyAbsArrays(int[] a, int[] b){
+        int[] large = HelperClass.getLargeArray(a, b);
+        int[] small = HelperClass.getSmallArray(a, b);
+        int[] result = new int[]{0};
+        for(int i = 0; i < small.length; i++){
+            int[] curr = HelperClass.multiplyByDigit(large, small[i]);
+            curr = HelperClass.multiplyByTens(curr, small.length - (i + 1));
+            result = HelperClass.addAbsArrays(result, curr);
+        }
+        return result;
+    }
+    public static String MultiplyArrays(int[] a, int asgn, int[] b, int bsgn){
+        int[] result = HelperClass.multiplyAbsArrays(a, b);
+        int resultsgn = asgn * bsgn;
+        return HelperClass.toString(resultsgn, result);
+    }
+    public static String toString(int sgn, int[] mag){
+        String s = new String();
+        if(sgn == -1) s += '-';
+        for(int i = 0; i < mag.length; i++){
+            s += mag[i]; // cast (char) results in empty string
+        }
+        return s;
+    }
+}

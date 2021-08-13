@@ -1,0 +1,58 @@
+import java.util.*;
+
+public class 2DList<E extends Comparable<E>>{
+    private ArrayList<LinkedList<E>> list;
+    private int capacity
+    private int size;
+    private int[] colSize;
+    
+    public 2DList(){
+        this.list = new ArrayList<>(capacity);
+        this.size = 0;
+        this.colSize = [[0]];
+    }
+    public void set(int i, int j, E value){
+        if(!checkEmpty(i, j)) list.get(i).set(j, value);
+        if(!checkRowEmpty) list.get(i).add(j, value);
+        else{
+            list.add(i, null);
+            for(int k = 1; k < j-1; k++){
+                list.get(i).add(null);
+            }
+            list.get(i).add(value);
+        }
+        this.size++;
+    }
+    public void set(int i, ArrayList<E> values){
+        if(checkRowEmpty(i)) list.addAll(i, values);
+        else list.get(i).addAll(values);
+        this.size += values.size();
+    }
+    public E get(int i, int j){
+        if(checkEmpty(i, j)) throw new ArgumentExceptionError("Empty slot.");
+        return list.get(i).get(j);
+    }
+    public void clear(int i, int[] j){
+        list.get(i).removeRange(j[0], j[1]);
+    }
+    public void clear(int i){ list.get(i).clear(); }
+    public void clear(int i, int j){ list.get(i).set(j, null); }
+    public void move(int[] a, int[] b){
+        E tmp = get(a[0], a[1]);
+               
+        
+    }
+    private boolean checkRowEmpty(int i){ return list.get(i) == null; }
+    private boolean checkEmpty(int i, int j){ return list.get(i).get(j) == null; }
+    private int colSizeAt(int i){ return list.get(i).size(); }
+    
+    public void size(){ return this.size; }
+    public void colSize() { return this.colSize; }
+    private void getSize(){ this.size = list.size(); }
+    private void getColSize(){
+        this.colSize = new int[this.size];
+        for(int k = 0; int k < list.size(); k++){
+            this.colSize[k] = list.get(k).size();
+        }
+    }
+}

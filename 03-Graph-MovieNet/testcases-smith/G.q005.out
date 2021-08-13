@@ -1,0 +1,50 @@
+CPU time to construct a MovieNet Database: 139 millisec
+Which movies were starred by Barzman, Alan/Bishop, John (I)/Hall, Cameron (I)/Hickey, Brenden/Whittington, Gene? (null)
+Which movies were starred by Doyle, Major? Wizard of Oz, The (1939)
+Which movies were starred by Lai, Alexandra/Pollack, Ulf? (null)
+Which movies were starred by Alexander, Stan/Lake, Peter (I)/Sues, Alan/Wald, George? (null)
+Which movies were starred by Kirby, W./van Orden, Debbie? (null)
+Who were cast in all the movie(s): Blue Water, White Death (1971)/Feather Finger (1966)/Museum Scream (2003)? (null)
+Who were cast in all the movie(s): 20000 Leagues Under the Sea (1954)/Legend of Bigfoot, The (1976)/Once Upon a Scoundrel (1974)/Threshold: The Blue Angels Experience (1975)? (null)
+Who were cast in all the movie(s): Benji (1974)/Marche de l'empereur, La (2005)/Odd Couple, The (1968)/Sea Gypsies, The (1978)/Sounder, Part 2 (1976)? (null)
+Who were cast in all the movie(s): Little Ghost (1997)/Santa and the Three Bears (1970)/Teen Knight (1998)? (null)
+Who were cast in all the movie(s): Thumbelina (1970)/Two a Penny (1967)? (null)
+Which pair cast in Benji the Hunted (1987) costarred most often? Camp, Joe (I)/Steagall, Red
+Which pair cast in Cougar Country (1970) costarred most often? (null)
+Which pair cast in Enemy of the People, An (1978) costarred most often? Begg, Jim/Medalis, Joseph G.
+Which pair cast in London Derri?re (1968) costarred most often? Harrington Jr., Pat/Weinrib, Lennie
+Which pair cast in That's Entertainment! III (1994) costarred most often? Kelly, Gene (I)/Rooney, Mickey (I)
+Bacon number of Hewson, Sherrie : 3
+Bacon number of Ming-Na : 2
+Bacon number of Shelley, Frank : 2
+Bacon number of Tensi, Francesco : 4
+Bacon number of Urjindorj, Batchuluun : -1
+Collaboration distance between Crisp, Tracey/Tickner, Hilary : 2
+Collaboration distance between McCuller, Arnold/Angela, June : 2
+Collaboration distance between Perlman, Itzhak/Delphe, B?atrice : 3
+Collaboration distance between Schroder, Rick/Keys, Amy : 3
+Collaboration distance between Walker Jr., Robert/Strasberg, Lee : 2
+The number of shortest paths between Crisp, Tracey/Tickner, Hilary : 1
+The number of shortest paths between McCuller, Arnold/Angela, June : 3
+The number of shortest paths between Perlman, Itzhak/Delphe, B?atrice : 7
+The number of shortest paths between Schroder, Rick/Keys, Amy : 3
+The number of shortest paths between Walker Jr., Robert/Strasberg, Lee : 1
+A shortest path from Crisp, Tracey to Tickner, Hilary : Crisp, Tracey -> Claire, Susan (I) -> Tickner, Hilary
+A shortest path from McCuller, Arnold to Angela, June : McCuller, Arnold -> Derryberry, Debi -> Angela, June
+A shortest path from Perlman, Itzhak to Delphe, B?atrice : Perlman, Itzhak -> Anselmo, Tony -> Buttram, Pat (I) -> Delphe, B?atrice
+A shortest path from Schroder, Rick to Keys, Amy : Schroder, Rick -> Renaday, Peter -> Gould, Harold (I) -> Keys, Amy
+A shortest path from Walker Jr., Robert to Strasberg, Lee : Walker Jr., Robert -> Mitchum, Robert -> Strasberg, Lee
+Eccentricity of Hewson, Sherrie : 6
+Eccentricity of Ming-Na : 5
+Eccentricity of Shelley, Frank : 5
+Eccentricity of Tensi, Francesco : 7
+Eccentricity of Urjindorj, Batchuluun : 1
+Closeness of Hewson, Sherrie : 1960.1875
+Closeness of Ming-Na : 2476.5
+Closeness of Shelley, Frank : 2540.625
+Closeness of Tensi, Francesco : 1497.5625
+Closeness of Urjindorj, Batchuluun : 2.0
+CPU time to process queries : 386 millisec
+
+Memory consumption: 874258304 bytes
+

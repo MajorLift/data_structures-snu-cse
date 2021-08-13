@@ -1,0 +1,132 @@
+A spatial distance join operation was recently introduced to
+spatial databases to associate one or more sets of
+spatial data by distances between them.
+A distance is usually defined in terms of spatial attributes,
+but it can be defined in many different ways
+according to various application specific requirements.
+In multimedia and image database applications, for example,
+other metrics such as a similarity distance function can be used
+to measure a distance between two objects in a feature space.
+
+In on-line decision support and internet search environments,
+it is quite common to pose a query that finds the best $k$ matches
+or reports the results incrementally in the decreasing order of
+well-matchedness. This type of operations allow users to interact
+with database systems more effectively and focus
+on the ``best'' answers.
+Since users can say ``It is enough already'' at any time after obtaining
+the best answers, the waste of system resources can be
+reduced and thereby delivering the results to users more quickly.
+
+This ranking requirement is often combined with a spatial distance join
+query, and the ranking requirement provides a new opportunity of
+optimization for spatial distance join processing.
+For example, consider a query that retrieves the top $k$ pairs
+(\ie, the nearest pairs) of hotels and restaurants:
+\begin{quote}\begin{verbatim}
+SELECT h.name, r.name
+FROM Hotel h, Restaurant r
+ORDER BY distance(h.location, r.location)
+STOP AFTER k;
+\end{verbatim}\end{quote}
+For a relatively small stopping cardinality $k$,
+the processing time can be reduced significantly
+by sorting only a fraction of intermediate results
+enough to produce the $k$ nearest pairs,
+instead of sorting an entire set of intermediate results
+(\ie, a Cartesian product of hotels and restaurants).
+
+A spatial distance join query with a stopping cardinality can be
+formulated as follows:
+\[ \sigma_{dist(r,s) < \mathcal{D}_{max}}(R \Join S) \]
+where $\dist{r,s}$ is a distance between two spatial objects
+$r \in R$ and $s \in S$, and
+\dmax{} is a cutoff distance that is determined by
+a stopping cardinality $k$ and the spatial attribute values of
+two data sets $R$ and $S$.
+It may then be argued that a spatial distance join query can be processed
+by a spatial join
+operation
+followed by a sort operation.
+Specifically, if a \dmax{} value can be predicted precisely
+for a given stopping cardinality $k$,
+we can use a spatial join algorithm with a {\tt within} predicate
+instead of an {\tt intersect} predicate
+to find the $k$ nearest pairs of objects.
+Then, a sort operation will be performed only on the $k$ pairs of objects.
+
+In practice, however, it is almost impossible to estimate
+an accurate \dmax{} value for a given stopping cardinality $k$,
+and, to the best of our knowledge, no method for estimating such
+a cutoff value has been reported in the literature.
+If the \dmax{} value is overestimated, then the results from
+a spatial join operation may contain too many candidate pairs,
+which may cause a long delay in a subsequent stage to sort
+all the candidate pairs.
+On the other hand, if the \dmax{} value is 
+A spatial distance join operation was recently introduced to
+spatial databases to associate one or more sets of
+spatial data by distances between them.
+A distance is usually defined in terms of spatial attributes,
+but it can be defined in many different ways
+according to various application specific requirements.
+In multimedia and image database applications, for example,
+other metrics such as a similarity distance function can be used
+to measure a distance between two objects in a feature space.
+
+In on-line decision support and internet search environments,
+it is quite common to pose a query that finds the best $k$ matches
+or reports the results incrementally in the decreasing order of
+well-matchedness. This type of operations allow users to interact
+with database systems more effectively and focus
+on the ``best'' answers.
+Since users can say ``It is enough already'' at any time after obtaining
+the best answers, the waste of system resources can be
+reduced and thereby delivering the results to users more quickly.
+
+This ranking requirement is often combined with a spatial distance join
+query, and the ranking requirement provides a new opportunity of
+optimization for spatial distance join processing.
+For example, consider a query that retrieves the top $k$ pairs
+(\ie, the nearest pairs) of hotels and restaurants:
+\begin{quote}\begin{verbatim}
+SELECT h.name, r.name
+FROM Hotel h, Restaurant r
+ORDER BY distance(h.location, r.location)
+STOP AFTER k;
+\end{verbatim}\end{quote}
+For a relatively small stopping cardinality $k$,
+the processing time can be reduced significantly
+by sorting only a fraction of intermediate results
+enough to produce the $k$ nearest pairs,
+instead of sorting an entire set of intermediate results
+(\ie, a Cartesian product of hotels and restaurants).
+
+A spatial distance join query with a stopping cardinality can be
+formulated as follows:
+\[ \sigma_{dist(r,s) < \mathcal{D}_{max}}(R \Join S) \]
+where $\dist{r,s}$ is a distance between two spatial objects
+$r \in R$ and $s \in S$, and
+\dmax{} is a cutoff distance that is determined by
+a stopping cardinality $k$ and the spatial attribute values of
+two data sets $R$ and $S$.
+It may then be argued that a spatial distance join query can be processed
+by a spatial join
+operation
+followed by a sort operation.
+Specifically, if a \dmax{} value can be predicted precisely
+for a given stopping cardinality $k$,
+we can use a spatial join algorithm with a {\tt within} predicate
+instead of an {\tt intersect} predicate
+to find the $k$ nearest pairs of objects.
+Then, a sort operation will be performed only on the $k$ pairs of objects.
+
+In practice, however, it is almost impossible to estimate
+an accurate \dmax{} value for a given stopping cardinality $k$,
+and, to the best of our knowledge, no method for estimating such
+a cutoff value has been reported in the literature.
+If the \dmax{} value is overestimated, then the results from
+a spatial join operation may contain too many candidate pairs,
+which may cause a long delay in a subsequent stage to sort
+all the candidate pairs.
+On the other hand, if the \dmax{} value is 

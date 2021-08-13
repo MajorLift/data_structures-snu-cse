@@ -1,0 +1,9 @@
+     *-cpu
+          product: Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz
+          vendor: Intel Corp.
+          physical id: 1
+          bus info: cpu@0
+          size: 3998MHz
+          capacity: 3998MHz
+          width: 64 bits
+

@@ -1,0 +1,1 @@
+echo "G.q100" | xargs -I{} sh -c "javac *.java -Xlint && java MainBacon ../testcases-smith/G.txt ../testcases-smith/{}.txt > {}.out && diff {}.out ../testcases-smith/{}.out" | grep -v -e 'A shortest path' -e 'Which pair cast' -e '---'

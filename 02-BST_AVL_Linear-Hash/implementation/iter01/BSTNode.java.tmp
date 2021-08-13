@@ -1,0 +1,67 @@
+public class BSTNode<E> extends TNode<String>{
+  protected String key;
+  private BSTNode<E> left = null;
+  private BSTNode<E> right = null;
+  // private int size = 1;
+  // protected int height = 0;
+  // private int freq = 1;       // increment when duplicate keys are inserted
+  // private int access = 0;     // increment when BSTNode<E> is probed during search/find operation
+
+  public BSTNode(){
+    this.key = null;
+    this.size = 0;
+  }
+  public BSTNode(String key){
+    this.key = key;
+  }
+  public BSTNode(String key, BSTNode<E> left, BSTNode<E> right){
+    this.key = key;
+    this.left = left;
+    this.right = right;
+    this.size = setSize(this);
+    this.height = setHeight(this);
+  }
+  public void clone(BSTNode<E> node){
+    this.key = node.Key();
+    this.left = node.Left();
+    this.right = node.Right();
+    this.size = node.size();
+    this.height = node.height();
+    this.freq = node.Freq();
+    this.access = node.Access();
+  }
+
+  public BSTNode<E> Left() { return this.left; }
+  public BSTNode<E> Right() { return this.right; }
+  // public String Key() { return this.key; }
+  // public void setLeft(BSTNode<E> left) { this.left = left; }
+  // public void setRight(BSTNode<E> right) { this.right = right; }
+  // public void setKey(String key) { this.key = key; }
+
+  // public int compareTo(BSTNode<E> that){
+  //     if(this.Key().compareTo(that.Key()) < 0) return -1;
+  //     if(this.Key().compareTo(that.Key()) > 0) return +1;
+  //     else return 0; 
+  // }
+
+  // public int height(){ return this.height; }
+  // public void setHeight(){ this.height = setHeight(this); }
+  // private int setHeight(BSTNode<E> curr){
+  //   if(curr == null) return -1;
+  //   return 1 + Math.max(setHeight(curr.Left()), setHeight(curr.Right()));
+  // }
+  
+  // public int size(){ return this.size; }
+  // private int setSize(BSTNode<E> curr){
+  //   if(curr == null) return 0;
+  //   return 1 + setSize(curr.Left()) + setSize(curr.Right());
+  // }
+
+  // public int Freq() { return this.freq; }
+  // public void incrementFreq(int n) { this.freq += n; }
+  // public void resetFreq() { this.freq = 1; }
+
+  // public int Access() { return this.access; }
+  // public void incrementAccess(int n) { this.access += n; }
+  // public void resetAccess() { this.access = 0; }
+}

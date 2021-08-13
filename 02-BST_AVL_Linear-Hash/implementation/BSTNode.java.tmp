@@ -1,0 +1,11 @@
+public class BSTNode<E extends Comparable<E>> extends TNode<E> {
+  
+  public BSTNode() {
+    this.key = null;
+    this.size = 0;
+  }
+
+  public BSTNode(E key) {
+    this.key = key;
+  }
+}

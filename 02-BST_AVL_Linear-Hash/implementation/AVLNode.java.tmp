@@ -1,0 +1,30 @@
+public class AVLNode<E extends Comparable<E>> extends TNode<E> {
+    private AVLNode<E> parent = null;
+    // private AVLNode<E> left = null;
+    // private AVLNode<E> right = null;
+
+    public AVLNode() {
+        this.key = null;
+        this.size = 0;
+    }
+
+    public AVLNode(E key) {
+        this.key = key;
+    }
+
+    public AVLNode<E> Parent() {
+        return this.parent;
+    }
+
+    // public AVLNode<E> Left() {
+    //     return this.left;
+    // }
+
+    // public AVLNode<E> Right() {
+    //     return this.right;
+    // }
+
+    public void setParent(AVLNode<E> parent) {
+        this.parent = parent;
+    }
+}

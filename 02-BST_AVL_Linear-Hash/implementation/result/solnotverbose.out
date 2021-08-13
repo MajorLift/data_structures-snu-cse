@@ -1,0 +1,108 @@
+>> train: 1000words.txt, query: 1000words.txt, LHsize: 128
+
+CPU time to build a(n) BST: 9 millisec
+CPU time to build a(n) AVL: 2 millisec
+Number of words in the BST: 251 (number of insertions: 1000)
+Total number of node accesses (BST): 8606 (failed searches: 0)
+CPU time for searching keys (BST): 1 millisec
+Total number of node accesses (AVL): 6778 (failed searches: 0)
+CPU time for searching keys (AVL): 1 millisec
+
+CPU time to build the Hash Table: 2 millisec
+Words inserted: 251 (insertions failed: 749); Storage util: 0.6182266 (hash entries: 278)
+Words found: 1000 (searches failed: 0)
+Total number of Hash Table accesses: 1979.0
+CPU time for searching keys in the Hash Table: 1 millisec
+
+Memory consumption: 9227496 bytes
+
+>> train: 1000words.txt, query: 2000words.txt, LHsize: 128
+
+CPU time to build a(n) BST: 9 millisec
+CPU time to build a(n) AVL: 4 millisec
+Number of words in the BST: 251 (number of insertions: 1000)
+Total number of node accesses (BST): 17212 (failed searches: 0)
+CPU time for searching keys (BST): 3 millisec
+Total number of node accesses (AVL): 13556 (failed searches: 0)
+CPU time for searching keys (AVL): 2 millisec
+
+CPU time to build the Hash Table: 2 millisec
+Words inserted: 251 (insertions failed: 749); Storage util: 0.6182266 (hash entries: 278)
+Words found: 2000 (searches failed: 0)
+Total number of Hash Table accesses: 3958.0
+CPU time for searching keys in the Hash Table: 2 millisec
+
+Memory consumption: 11534416 bytes
+
+>> train: 2000words.txt, query: 2000words2.txt, LHsize: 128
+
+CPU time to build a(n) BST: 11 millisec
+CPU time to build a(n) AVL: 5 millisec
+Number of words in the BST: 251 (number of insertions: 2000)
+Total number of node accesses (BST): 19556 (failed searches: 1541)
+CPU time for searching keys (BST): 2 millisec
+Total number of node accesses (AVL): 15640 (failed searches: 1541)
+CPU time for searching keys (AVL): 2 millisec
+
+CPU time to build the Hash Table: 3 millisec
+Words inserted: 251 (insertions failed: 1749); Storage util: 0.6182266 (hash entries: 278)
+Words found: 460 (searches failed: 1541)
+Total number of Hash Table accesses: 4487.0
+CPU time for searching keys in the Hash Table: 2 millisec
+
+Memory consumption: 13841264 bytes
+
+>> train: 40kwords.txt, query: darwin.txt, LHsize: 128
+
+CPU time to build a(n) BST: 67 millisec
+CPU time to build a(n) AVL: 52 millisec
+Number of words in the BST: 9106 (number of insertions: 42603)
+Total number of node accesses (BST): 2499104 (failed searches: 59668)
+CPU time for searching keys (BST): 125 millisec
+Total number of node accesses (AVL): 2058807 (failed searches: 59668)
+CPU time for searching keys (AVL): 92 millisec
+
+CPU time to build the Hash Table: 24 millisec
+Words inserted: 9106 (insertions failed: 33497); Storage util: 0.6637026 (hash entries: 7736)
+Words found: 135460 (searches failed: 59668)
+Total number of Hash Table accesses: 674242.5
+CPU time for searching keys in the Hash Table: 84 millisec
+
+Memory consumption: 28379704 bytes
+
+>> train: darwin.txt, query: 40kwords.txt, LHsize: 8192
+
+CPU time to build a(n) BST: 200 millisec
+CPU time to build a(n) AVL: 114 millisec
+Number of words in the BST: 15110 (number of insertions: 195128)
+Total number of node accesses (BST): 573250 (failed searches: 12462)
+CPU time for searching keys (BST): 27 millisec
+Total number of node accesses (AVL): 489135 (failed searches: 12462)
+CPU time for searching keys (AVL): 23 millisec
+
+CPU time to build the Hash Table: 86 millisec
+Words inserted: 15110 (insertions failed: 180018); Storage util: 0.5997936 (hash entries: 17318)
+Words found: 30141 (searches failed: 12462)
+Total number of Hash Table accesses: 104082.0
+CPU time for searching keys in the Hash Table: 20 millisec
+
+Memory consumption: 138319600 bytes
+
+>> train: darwin.txt, query: 40kwords.txt, LHsize: 128
+
+CPU time to build a(n) BST: 200 millisec
+CPU time to build a(n) AVL: 113 millisec
+Number of words in the BST: 15110 (number of insertions: 195128)
+Total number of node accesses (BST): 573250 (failed searches: 12462)
+CPU time for searching keys (BST): 25 millisec
+Total number of node accesses (AVL): 489135 (failed searches: 12462)
+CPU time for searching keys (AVL): 22 millisec
+
+CPU time to build the Hash Table: 92 millisec
+Words inserted: 15110 (insertions failed: 180018); Storage util: 0.70716524 (hash entries: 12291)
+Words found: 30141 (searches failed: 12462)
+Total number of Hash Table accesses: 131421.5
+CPU time for searching keys in the Hash Table: 20 millisec
+
+Memory consumption: 20998720 bytes
+
