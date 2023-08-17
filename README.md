@@ -1,10 +1,8 @@
-# Data Structures
-
-Prompts, autograders, solutions for lab and project assignments.
-
-## Source
+# Data Structures Coursework
 
 *Seoul National University Dept. of Computer Science and Engineering*
+
+Prompts, autograders, solutions for lab and project assignments.
 
 ## Projects
 
