@@ -1,3 +1,4 @@
+package submission;
 public class AVL extends BST {
     
     public AVL() { }

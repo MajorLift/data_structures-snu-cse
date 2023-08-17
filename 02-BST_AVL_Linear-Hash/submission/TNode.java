@@ -1,3 +1,4 @@
+package submission;
 public class TNode<E extends Comparable<E>> {
   private E key = null;
   private TNode<E> left = null;

@@ -5,6 +5,9 @@
 
 import java.io.*;
 import java.util.*;
+
+import submission.MovieNet;
+
 import java.lang.Object;
 import java.lang.management.*;
 

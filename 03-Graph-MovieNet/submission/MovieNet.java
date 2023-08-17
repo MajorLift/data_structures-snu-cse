@@ -1,3 +1,4 @@
+package submission;
 /*
  * Six Degrees of Kevin Bacon
  *
@@ -5,7 +6,10 @@
 */
 
 import java.lang.*;
-import java.util.*; 
+import java.util.*;
+
+import Graph;
+
 import java.io.*;
 
 public class MovieNet {

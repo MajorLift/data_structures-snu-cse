@@ -1,5 +1,7 @@
 import java.util.*;
 
+import submission.Graph;
+
 public class PathFinder<T extends Object> {
     private Map<T, Set<T>> prev = new HashMap<>(); // previous nodes in shortest paths
     private Map<T, Integer> dist = new HashMap<>(); // visited (shortest path)
