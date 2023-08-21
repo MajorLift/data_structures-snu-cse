@@ -1,6 +1,7 @@
 # Data Structures Coursework
 
 Prompts, autograders, solutions for lab and project assignments.
+Solutions pass all test cases. 
 
 Courtesy of Prof. Moon Bongki, *Seoul National University Dept. of Computer Science and Engineering.*
 
